@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react'
+import {Switch,Redirect} from "react-router-dom";
+import routeEach from "utils/routeEach"
+import {LayoutRoutes} from "router"
+import Layout from "layout"
+class App extends Component {
+  render() {
+    return (
+      <Switch>
+        <Layout>
+            <Redirect from="/" to="/home" exact/>
+            {
+              routeEach(LayoutRoutes)
+            }
+        </Layout>
+      </Switch>
+    )
+  }
 }
 
-export default App;
+export default App
+

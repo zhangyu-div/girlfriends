@@ -1,0 +1,86 @@
+import {Home,Login, Userlist,Userinfo,Addgirl,Girllist}  from "pages";
+
+export const LayoutRoutes=[
+    {
+        path:'/home',
+        component:Home,
+        meta:{
+            requireAuth:true
+        },
+        icon:'home',
+        text:'系统首页',
+        key:'/home',
+    },
+    {
+        path:'/girls',
+        meta:{
+            requireAuth:true
+        },
+        children:[
+            {
+                path:'/girls/addgirl',
+                component:Addgirl,
+                meta:{
+                    requireAuth:true
+                },
+                icon:"user-add",
+                text:'添加女朋友',
+                key:'/girls/addgirl',
+            },
+            {
+                path:'/girls/girllist',
+                component:Girllist,
+                meta:{
+                    requireAuth:true
+                },
+                icon:"smile",
+                text:'女朋友列表',
+                key:'/girls/girllist',
+            },
+        ],
+        icon:'tool',
+        text:'女朋友管理',
+        key:'/girls'
+    },
+    {
+        path:'/user',
+        meta:{
+            requireAuth:true
+        },
+        children:[
+            {
+                path:'/user/userinfo',
+                component:Userinfo,
+                meta:{
+                    requireAuth:true
+                },
+                icon:"user",
+                text:'用户信息',
+                key:'/user/userinfo',
+            },
+            {
+                path:'/user/userlist',
+                component:Userlist,
+                meta:{
+                    requireAuth:true
+                },
+                icon:"profile",
+                text:'用户列表',
+                key:'/user/userlist',
+            }
+        ],
+        icon:'setting',
+        text:'用户管理',
+        key:'/user'
+    }
+];
+
+
+export const NoLayoutRoutes=[
+    {
+        path:'/login',
+        component:Login,
+        meta:{},
+        key:'/login'
+    },
+]
