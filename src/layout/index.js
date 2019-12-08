@@ -6,7 +6,7 @@ import sliderEach from "utils/sliderEach";
 
 import {withRouter}  from "react-router-dom";
 const { Header, Content, Footer, Sider } = Layout;
-// @withRouter
+@withRouter
 
 class Wrapper extends Component {
     state = {
@@ -41,7 +41,7 @@ class Wrapper extends Component {
         );
     }
     handleto({key}){
-        // this.props.history.push(key)
+        this.props.history.push(key)
     }
 }
 export default Wrapper;
